@@ -1,0 +1,28 @@
+import datetime
+
+class CalendarApp:
+    def __init__(self):
+        self.events = []
+
+    def add_event(self, event_name, date):
+        event = {"event_name": event_name, "date": date}
+        self.events.append(event)
+        print(f"Event '{event_name}' added successfully.")
+
+    def view_events(self):
+        if not self.events:
+            print("No events added.")
+        else:
+            print("Events:")
+            for event in self.events:
+                print(f"Event Name: {event['event_name']}")
+                print(f"Date: {event['date'].strftime('%Y-%m-%d')}")
+                print()
+
+if __name__ == '__main__':
+    calendar_app = CalendarApp()
+
+    calendar_app.add_event("Meeting", datetime.datetime(2023, 6, 30, 14, 30))
+    calendar_app.add_event("Party", datetime.datetime(2023, 7, 10, 20, 0))
+
+    calendar_app.view_events()
